@@ -1,0 +1,2 @@
+# Domino
+GitHub is ok 
